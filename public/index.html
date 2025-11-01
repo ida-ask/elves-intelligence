@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELVES Intelligence — HUMINT Portal</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ELVES HUMINT">
+  <link rel="apple-touch-icon" href="/icons/elves-logo.png">
+</head>
+<body>
+  <header class="card">
+    <h1>ELVES INTELLIGENCE</h1>
+    <div class="badge">Operasjon Stjernenatt // HUMINT Access</div>
+  </header>
+
+  <section id="login" class="card">
+    <h2>FELTKODE</h2>
+    <p class="small muted">Skriv <em>dagens</em> feltkode for å åpne meldinger og rapportskjema.</p>
+    <label for="agentName">Kodenavn (valgfritt)</label>
+    <input id="agentName" type="text" placeholder="f.eks. NORDLYS">
+    <label for="dayCode">Dagens feltkode</label>
+    <input id="dayCode" type="text" placeholder="ELF1 / ELF2 / …">
+    <div class="row" style="margin-top:10px">
+      <button id="loginBtn">ÅPNE</button>
+    </div>
+    <div id="loginMsg" class="small warn" style="margin-top:8px"></div>
+  </section>
+
+  <section id="chat" class="card hidden">
+    <h2>ELVES · MELDINGER</h2>
+    <div id="inboxStatus" class="muted small">Laster inn…</div>
+    <div id="inbox"></div>
+    <hr>
+    <label for="msg">Send melding (agent → HQ)</label>
+    <textarea id="msg" placeholder="Skriv status, spørsmål eller rapport…"></textarea>
+    <label for="file">Legg ved fil (valgfritt)</label>
+    <input id="file" type="file" />
+    <div class="row" style="margin-top:10px">
+      <button id="sendBtn">SEND</button>
+      <button id="clearBtn" class="secondary">TØM</button>
+    </div>
+  </section>
+
+  <section id="history" class="card hidden">
+    <h2>TIDLIGERE RAPPORTER</h2>
+    <div id="historyList" class="small muted">Ingen rapporter enda.</div>
+  </section>
+
+  <footer class="center small">
+    © 2025 ELVES INTELLIGENCE — Frosthånden Counter-Ops Division
+  </footer>
+
+  <form name="agent-chat" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
+    <input type="hidden" name="form-name" value="agent-chat">
+    <input type="text" name="agent" value="">
+    <textarea name="message"></textarea>
+    <input type="file" name="file">
+    <input type="text" name="bot-field">
+  </form>
+
+  <script src="/app.js"></script>
+</body>
+</html>

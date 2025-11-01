@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ELVES // Admin</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="card"><h1>ELVES ADMIN</h1><div class="badge">Foreldre • Kontrollpanel</div></header>
+
+  <section class="card" id="gate">
+    <h2>Lås opp</h2>
+    <label for="pin">PIN</label>
+    <input id="pin" type="password" placeholder="Samme som Netlify INBOX_PIN">
+    <div style="margin-top:10px"><button id="unlock">Lås opp</button></div>
+    <div id="gateMsg" class="small muted" style="margin-top:8px"></div>
+  </section>
+
+  <section class="card hidden" id="publisher">
+    <h2>Ny beskjed (HQ → Agent)</h2>
+    <label for="title">Tittel (valgfritt)</label>
+    <input id="title" type="text" placeholder="f.eks. Oppdrag #4">
+    <label for="text">Tekst</label>
+    <textarea id="text" placeholder="Skriv melding til agenten…"></textarea>
+
+    <h3>Media (valgfritt)</h3>
+    <div class="small muted">Bruk direkte URL (YouTube/Vimeo/MP4/JPG/PNG/MP3).</div>
+    <div class="row">
+      <input id="mediaUrl" type="text" placeholder="https://…">
+      <select id="mediaType">
+        <option value="">Ingen</option>
+        <option value="image">Bilde (jpg/png)</option>
+        <option value="video">Video (mp4)</option>
+        <option value="audio">Lyd (mp3)</option>
+        <option value="youtube">YouTube</option>
+        <option value="vimeo">Vimeo</option>
+      </select>
+    </div>
+
+    <h3>Planlegging</h3>
+    <div class="row">
+      <input id="when" type="datetime-local">
+    </div>
+
+    <div class="row" style="margin-top:10px">
+      <button id="publishBtn">Publiser</button>
+      <button id="previewBtn" class="secondary">Forhåndsvis</button>
+    </div>
+    <div id="pubMsg" class="small muted" style="margin-top:8px"></div>
+  </section>
+
+  <section class="card hidden" id="inboxView">
+    <h2>Publiserte meldinger</h2>
+    <div id="list"></div>
+  </section>
+
+  <footer class="center small">© ELVES</footer>
+  <script src="/admin.js"></script>
+</body>
+</html>
